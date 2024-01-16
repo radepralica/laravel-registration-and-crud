@@ -58,8 +58,10 @@ $count=1;
                             <div class="container">
                                 <div class="row">
                                     <div class="col-6">
-                                        <button class="btn btn-warning d-inline">Edit</button>
+                                        <form action="{{route('product.edit',['product'=>$product])}}" method="GET">
 
+                                        <button class="btn btn-warning d-inline">Edit</button>
+                                    </form>
                                     </div>
                                     <div class="col-6">
                                         <button class="btn btn-danger d-inline">Delete</button>

@@ -17,15 +17,28 @@ class ProductController extends Controller
     public function main ()
     {
         $products=Product::all();
-        return view('main',['products'=>$products]);
+        return view('products.main',['products'=>$products]);
     }
-
 
  public function store(ProductRequest $request)
         {
             Product::create($request->validated());
             return redirect(route('user.main'));
         }
+
+  public function edit (Product $product)
+    {
+      if(!auth()->check()){
+        return redirect('/home');
+      }
+      return view('products.edit',['product'=>$product]);
+    }
+
+  public function update (Product $product,ProductRequest $request)
+    {
+        $product->update($request->validated());
+      return redirect('/main');
+    }
 
 
 }
