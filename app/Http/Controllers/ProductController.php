@@ -40,5 +40,11 @@ class ProductController extends Controller
       return redirect('/main');
     }
 
+ public function destroy (Product $product)
+    {
+       $product->delete();
+        return redirect(route('product.main'));
+    }
+
 
 }

@@ -28,7 +28,8 @@
 <div class="container">
     <div class="row">
         <div class="col ">
-            <table class="table   table-striped rounded-2 overflow-hidden alert  alert-primary" style="font-size: large;text-align: center;">
+            <table class="table   table-striped rounded-2 overflow-hidden alert  alert-primary"
+                style="font-size: large;text-align: center;">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -52,7 +53,7 @@ $count=1;
                         <td>{{$product->name}}</td>
                         <td>{{$product->qty}}</td>
                         <td>{{$product->price}}</td>
-                        <td width=650 >{{$product->description}}
+                        <td width=650>{{$product->description}}
                         </td>
                         <td>
                             <div class="container">
@@ -60,11 +61,16 @@ $count=1;
                                     <div class="col-6">
                                         <form action="{{route('product.edit',['product'=>$product])}}" method="GET">
 
-                                        <button class="btn btn-warning d-inline">Edit</button>
-                                    </form>
+                                            <button class="btn btn-warning d-inline">Edit</button>
+                                        </form>
                                     </div>
                                     <div class="col-6">
-                                        <button class="btn btn-danger d-inline">Delete</button>
+                                        <form action=" {{route('product.delete',['product'=>$product])}}"
+                                            method="post">
+@csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger d-inline">Delete</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

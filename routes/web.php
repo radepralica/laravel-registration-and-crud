@@ -31,6 +31,7 @@ Route::get('/create',[ProductController::class,'create'])->name('product.create'
 Route::post('/create',[ProductController::class,'store'])->name('product.store');
 Route::get('/edit/product/{product}',[ProductController::class,'edit'])->name('product.edit')->middleware('auth');
 Route::put('/product/{product}',[ProductController::class,'update'])->name('product.update');
+Route::delete('/product/{product}',[ProductController::class,'destroy'])->name('product.delete');
 
 
 
